@@ -30,7 +30,7 @@ export class CanvasComponent implements OnInit {
   constructor(private canvasService:CanvasService,
               private graphService:GraphService,
               private dijkstraService:DijkstraService,
-              private animateService:AnimatePathService) { }
+              private animateService:AnimatePathService) {}
 
   ngOnInit(): void {
 
@@ -54,14 +54,15 @@ export class CanvasComponent implements OnInit {
   }
 
   onMouseMove(event:MouseEvent){
-
-    let currNode = this.graph.nodes[Math.floor(event.offsetY/this.grid.cellSize)][Math.floor(event.offsetX/this.grid.cellSize)].id;
-    if(this.mousePressed && currNode != this.lastClickedNode){
-      this.lastClickedNode = this.canvasService.updateNode(this.grid,this.graph,event,this.clickState);
-      this.canvasService.updateCanvas(this.grid,this.graph);
-      this.canvasService.updateToPlace(this.graph,this.toPlaceEmitter);
-      this.animateService.clearTimeouts();
-
+    const currNode = this.graph.nodes[Math.floor(event.offsetY/this.grid.cellSize)][Math.floor(event.offsetX/this.grid.cellSize)];
+    if(currNode){
+      const currNodeID = currNode.id;
+      if(this.mousePressed && currNodeID != this.lastClickedNode){
+        this.lastClickedNode = this.canvasService.updateNode(this.grid,this.graph,event,this.clickState);
+        this.canvasService.updateCanvas(this.grid,this.graph);
+        this.canvasService.updateToPlace(this.graph,this.toPlaceEmitter);
+        this.animateService.clearTimeouts();
+      }
     }
   }
 

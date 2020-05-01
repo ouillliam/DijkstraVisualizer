@@ -14,9 +14,9 @@ export class VisualizationComponent implements OnInit {
   @ViewChild("canvasComponent") canvasComponent: CanvasComponent;
 
   clickStateValue:string;
-  toPlace:string;
+  toPlace:string="Start Node";
 
-  constructor(private dijkstraService:DijkstraService) { }
+  constructor(public dijkstraService:DijkstraService) { }
 
   ngOnInit(): void {
   }
