@@ -72,13 +72,13 @@ export class CanvasService {
 
   }
 
-  updateToPlace(graph:Graph, emitter:EventEmitter<string>){
+  updateToPlace(graph:Graph, emitter:EventEmitter<string[]>){
     if(graph.startId == null)
-      emitter.emit("Start Node");
+      emitter.emit(["Start Node","seagreen"]);
     else if(graph.targetId == null)
-      emitter.emit("Target Node");
+      emitter.emit(["Target Node","red"]);
     else
-      emitter.emit("Walls");
+      emitter.emit(["Walls","black"]);
   }
 
 

@@ -11,7 +11,11 @@ export class NodeMenuComponent implements OnInit {
 
   @Output() clickStateOutput: EventEmitter<MatButtonToggleChange> = new EventEmitter();
 
-  clickStates:string[] = ["Start Node","Target Node","Wall"];
+  clickStates:string[][] = [
+    ["Start Node","seagreen"],
+    ["Target Node","red"],
+    ["Wall","black"]
+  ];
 
 
   constructor() { }

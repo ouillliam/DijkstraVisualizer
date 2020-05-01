@@ -13,21 +13,23 @@ export class VisualizationComponent implements OnInit {
 
   @ViewChild("canvasComponent") canvasComponent: CanvasComponent;
 
-  clickStateValue:string;
-  toPlace:string="Start Node";
+  clickStateValue: string;
+  toPlace: string = "Start Node";
+  toPlaceColor:string ="seagreen";
 
-  constructor(public dijkstraService:DijkstraService) { }
+  constructor(public dijkstraService: DijkstraService) { }
 
   ngOnInit(): void {
   }
 
-  onClickStateChange(clickStateChange:MatButtonToggleChange){
-    let newClickStateValue:string = clickStateChange.value;
+  onClickStateChange(clickStateChange: MatButtonToggleChange) {
+    let newClickStateValue: string = clickStateChange.value;
     this.clickStateValue = newClickStateValue;
   }
 
-  onToPlaceEvent(event:string){
-    this.toPlace = event;
+  onToPlaceEvent(event: string[]) {
+    this.toPlace = event[0];
+    this.toPlaceColor = event[1]
   }
 
 }

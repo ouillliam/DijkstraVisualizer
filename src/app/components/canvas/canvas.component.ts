@@ -18,7 +18,7 @@ export class CanvasComponent implements OnInit {
 
   @Input() clickState:string;
 
-  @Output() toPlaceEmitter: EventEmitter<string> = new EventEmitter();
+  @Output() toPlaceEmitter: EventEmitter<string[]> = new EventEmitter();
 
 
   grid:GridCanvas;
