@@ -1,0 +1,3 @@
+<mat-button-toggle-group aria-label="nodeSelectionMenu" (change)="setClickState($event)">
+    <mat-button-toggle *ngFor="let state of clickStates" [value]="state">{{state}}</mat-button-toggle>
+</mat-button-toggle-group>

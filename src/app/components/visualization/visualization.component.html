@@ -1,0 +1,20 @@
+<div id='visualization' class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col align-self-center"> 
+            <div>Place <span>{{toPlace}}</span></div>
+            <app-canvas #canvasComponent [clickState]="clickStateValue" (toPlaceEmitter)="onToPlaceEvent($event)"></app-canvas>
+       </div> 
+       <div class="col"></div>
+    </div> 
+    <div class="row">
+        <div class="col"></div>
+        <div class="col align-self-center"> 
+            <app-node-menu (clickStateOutput)="onClickStateChange($event)"></app-node-menu>
+            <button mat-raised-button (click)="canvasComponent.clear()">Clear</button>
+            <button mat-raised-button (click)="canvasComponent.visualizeDijkstra()">Visualize</button>
+            <p *ngIf="dijkstraService.error">Couldn't reach target node !</p>
+       </div> 
+       <div class="col"></div>
+    </div> 
+</div>
